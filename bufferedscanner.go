@@ -20,6 +20,9 @@ type bufferedScanner struct {
 	back, front buffer
 }
 
+// NewBufferedScanner returns a BufferedScanner that is backed by s.
+// Calls to BufferedScanner.Unscan that are unmatched by a preceding call to
+// BufferedScanner.Scan will panic.
 func NewBufferedScanner(s Scanner) BufferedScanner {
 	return &bufferedScanner{s: s}
 }
@@ -36,8 +39,6 @@ func (s bufferedScanner) Text() string {
 	return string(s.Bytes())
 }
 
-// FIXME Scan could be more efficiently implemented by skipping the intermediate step
-// of pushing to a back buffer
 func (s *bufferedScanner) Scan() bool {
 	if s.back.empty {
 		// need to fetch data from backing scanner

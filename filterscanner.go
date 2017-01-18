@@ -1,5 +1,7 @@
 package scan
 
+// Filter is the signature of the function used by FilterScanner to filter
+// scanned tokens.
 type Filter func(View) bool
 
 // FilterScanner implements the Scanner interface by filtering the tokens from

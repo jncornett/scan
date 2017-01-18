@@ -8,6 +8,7 @@ import (
 	"github.com/jncornett/scan"
 )
 
+// FIXME add test cases for error conditions
 func TestBufferedScanner(t *testing.T) {
 	text := "foo\n"
 	s := scan.NewBufferedScanner(bufio.NewScanner(strings.NewReader(text)))

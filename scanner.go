@@ -1,3 +1,5 @@
+// Package scan implements utilities for wrapping and manipulating string
+// scanners.
 package scan
 
 // Scanner is an interface that wraps basic scanning methods.
